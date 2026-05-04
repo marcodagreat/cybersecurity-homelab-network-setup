@@ -29,7 +29,7 @@ The goal was to build a segmented virtual lab environment for security monitorin
 
 ## Network Topology
 
-- <img width="915" height="600" alt="My Cybersecurity Home Lab Network Topology" src="https://github.com/user-attachments/assets/3a0c5632-07eb-414f-82b1-d780bc541d96" />
+<img width="915" height="600" alt="My Cybersecurity Home Lab Network Topology" src="https://github.com/user-attachments/assets/3a0c5632-07eb-414f-82b1-d780bc541d96" />
 
 
 
