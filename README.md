@@ -54,6 +54,8 @@ The goal was to build a segmented virtual lab environment for security monitorin
 
 
 
+
+
 ## Stage 2: VirtualBox Network Configuration
 - Configured NAT adapter for internet access
 - Configured bridged adapter for cross-host communication
