@@ -1,36 +1,33 @@
-# cybersecurity-homelab-network-setup
+
 # Enterprise Cybersecurity Homelab Network Setup
+
+## Network Topology
+
+<img width="915" height="600" alt="My Cybersecurity Home Lab Network Topology" src="https://github.com/user-attachments/assets/3a0c5632-07eb-414f-82b1-d780bc541d96" />
 
 ## Project Overview
 This project documents the design and configuration of an enterprise-style cybersecurity homelab using VirtualBox and MikroTik CHR.
 
 The goal was to build a segmented virtual lab environment for security monitoring, attack simulations, Active Directory testing, SIEM integration, and incident response practice.
 
-## Lab Objectives
-- Build a multi-VM cybersecurity lab environment
-- Configure MikroTik CHR as the central virtual router
-- Create segmented subnets for Blue Team, Red Team, and server infrastructure
-- Configure VirtualBox NAT, bridged, and internal networking
-- Validate routing and inter-subnet communication
-- Prepare the environment for Splunk SIEM monitoring and future attack detection
+## Lab Architecture 
 
-## Tools and Technologies
-- VirtualBox
-- MikroTik CHR / RouterOS
-- Windows Server 2022
-- Active Directory
-- Windows 11
-- Kali Linux
-- Ubuntu Server
-- Splunk
-- Sysmon
-- TCP/IP Networking
-- NAT, Routing, and Firewall Rules
+**Host A (Laptop)**
+- MikroTik CHR Router
+- Windows 10 Endpoint
+- Kali Linux (Red Team)
+- Ubuntu Server (Web/DNS)
 
-## Network Topology
-
-<img width="915" height="600" alt="My Cybersecurity Home Lab Network Topology" src="https://github.com/user-attachments/assets/3a0c5632-07eb-414f-82b1-d780bc541d96" />
-
+**Host B (Desktop)**
+- Windows Server 2022 (Active Directory)
+- Ubuntu Server (Splunk SIEM)
+- Windows 11 Endpoint
+  
+**Networking Design**
+- Dedicated physical switch connecting both hosts
+- NAT adapter for internet access
+- Bridged adapter for cross-host communication
+- Internal VirtualBox networks for segmentation
 
 
 ## IP Addressing Plan
@@ -52,9 +49,10 @@ The goal was to build a segmented virtual lab environment for security monitorin
 
   <img width="3024" height="4032" alt="IMG_2523" src="https://github.com/user-attachments/assets/3203a38d-876f-4c18-835a-84fb7956d015" />
 
+*Figure: Physical lab setup with multi-host virtualization and dedicated network switch*
 
 
-
+---
 
 ## Stage 2: VirtualBox Network Configuration
 - Configured NAT adapter for internet access
