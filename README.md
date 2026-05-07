@@ -234,3 +234,7 @@ The goal was to build a segmented virtual lab environment for security monitorin
 - Document detection rules
 - Create incident response reports
 - Add vulnerability scanning and remediation workflow
+
+---
+
+🔐 *Learning cybersecurity through building, attacking, and defending systems.*
