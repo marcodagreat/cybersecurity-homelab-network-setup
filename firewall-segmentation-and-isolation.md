@@ -190,3 +190,53 @@ Examples of successful connectivity before segmentation:
 This showed that the lab was not fully isolated from the host systems and home network.
 
 ---
+
+After Firewall Rules
+
+After applying the MikroTik firewall rules, traffic from lab VMs to host machines and the home LAN was blocked.
+
+Expected results after segmentation:
+
+Test
+
+Expected Result
+
+Kali Linux to Host A OS
+
+Blocked
+
+Kali Linux to Host B OS
+
+Blocked
+
+Kali Linux to Home LAN
+
+Blocked
+
+Blue Team VM to Home LAN
+
+Blocked
+
+Transit VM to Home LAN
+
+Blocked
+
+Home LAN to Lab Networks
+
+Blocked
+
+Kali Linux to Windows Server AD
+
+Allowed
+
+Windows 11 to Active Directory
+
+Allowed
+
+Endpoint VMs to Splunk
+
+Allowed
+
+Lab VMs to Internet
+
+Allowed
