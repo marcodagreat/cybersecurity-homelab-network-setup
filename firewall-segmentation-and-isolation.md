@@ -197,7 +197,7 @@ After applying the MikroTik firewall rules, traffic from lab VMs to host machine
 
 Expected results after segmentation:
 
-| Test                           | Expected Results |
+| Test                           |Expected Results |
 | -------------------------      | ---------------- |
 | Kali Linux to Host A OS.       | Blocked          |
 | Kali Linux to Host B OS.       | Blocked          |
