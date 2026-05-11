@@ -197,35 +197,15 @@ After applying the MikroTik firewall rules, traffic from lab VMs to host machine
 
 Expected results after segmentation:
 
-Test
-
-Expected Result
-
-Kali Linux to Host A OS
-
-Blocked
-
-Kali Linux to Host B OS
-
-Blocked
-
-Kali Linux to Home LAN
-
-Blocked
-
-Blue Team VM to Home LAN
-
-Blocked
-
-Transit VM to Home LAN
-
-Blocked
-
-Home LAN to Lab Networks
-
-Blocked
-
-Kali Linux to Windows Server AD
+| Test                      | Expected Results |
+| ------------------------- | ---------------- |
+| Kali Linux to Host A OS.  |.   Blocked
+| Kali Linux to Host B OS.  | Blocked
+| Kali Linux to Home LAN.   | Blocked
+| Blue Team VM to Home LAN. | Blocked
+| Transit VM to Home LAN.   | Blocked
+| Home LAN to Lab Networks. | Blocked
+| Kali Linux to Windows Server AD
 
 Allowed
 
