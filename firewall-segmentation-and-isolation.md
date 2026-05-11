@@ -173,3 +173,12 @@ In this lab, i used explicit deny rules for isolation boundaries so that the tar
 
 ---
 
+## Validation Testing
+
+After applying the firewall rules, I tested communication before and after segmentation to verify that the rules worked as intended.
+
+### Before Firewall Rules
+
+Before applying the firewall rules, some VMs were able to reach unintended systems.
+
+Examples of successful connectivity before segmentation:
