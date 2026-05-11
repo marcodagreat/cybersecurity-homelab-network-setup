@@ -182,3 +182,11 @@ After applying the firewall rules, I tested communication before and after segme
 Before applying the firewall rules, some VMs were able to reach unintended systems.
 
 Examples of successful connectivity before segmentation:
+
+- ping 192.168.1.193
+
+
+
+This showed that the lab was not fully isolated from the host systems and home network.
+
+---
