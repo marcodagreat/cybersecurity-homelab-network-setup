@@ -199,7 +199,7 @@ Expected results after segmentation:
 
 | Test                           | Expected Results |
 | -------------------------      | ---------------- |
-| Kali Linux to Host A OS.       | Blocked          |
+| Kali Linux to Host A OS.       |  Blocked          |
 | Kali Linux to Host B OS.       | Blocked          |
 | Kali Linux to Home LAN .       | Blocked          |
 | Blue Team VM to Home LAN.      | Blocked          |
