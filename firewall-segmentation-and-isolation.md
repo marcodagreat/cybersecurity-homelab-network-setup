@@ -191,21 +191,45 @@ This showed that the lab was not fully isolated from the host systems and home n
 
 ---
 
-After Firewall Rules
+### After Firewall Rules
 
 After applying the MikroTik firewall rules, traffic from lab VMs to host machines and the home LAN was blocked.
 
 Expected results after segmentation:
 
-| Test                           | Expected Results |
-| -------------------------      | ---------------- |
-| Kali Linux to Host A OS.       |  Blocked          |
-| Kali Linux to Host B OS.       | Blocked          |
-| Kali Linux to Home LAN .       | Blocked          |
-| Blue Team VM to Home LAN.      | Blocked          |
-| Transit VM to Home LAN.        | Blocked          |
-| Home LAN to Lab Networks.      | Blocked          |
-| Kali Linux to Windows Server AD| Allowed          |
-| Windows 11 to Active Directory | Allowed          |
-| Endpoint VMs to Spluk.         | Allowed          |
-| Lab VMs to Internet.           | Allowed          |
+| Test                           |  Expected Results   |
+| -------------------------      |  ----------------   |
+| Kali Linux to Host A OS.       |    Blocked          |
+| Kali Linux to Host B OS.       |    Blocked          |
+| Kali Linux to Home LAN .       |    Blocked          |
+| Blue Team VM to Home LAN.      |    Blocked          |
+| Transit VM to Home LAN.        |    Blocked          |
+| Home LAN to Lab Networks.      |    Blocked          |
+| Kali Linux to Windows Server AD|    Allowed          |
+| Windows 11 to Active Directory |    Allowed          |
+| Endpoint VMs to splunk         |    Allowed          | 
+| Lab VMs to internet            |    Allowed          | 
+
+### This confirmed that the lab networks were isolated from the home network while still allowing controlled communication for cybersecurity testing, logging, and detection engineering.
+
+---
+
+## Validation Commands
+
+The following commands were used to test isolation and connectivity.
+### Ping Test
+
+Used to verify whether a VM could reach a host, home LAN device, or another lab VM.
+
+---
+
+## MikroTik Firewall Rule Verification
+
+
+Used to verify the firewall filter rules.
+
+---
+
+
+
+
