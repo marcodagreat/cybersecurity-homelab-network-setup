@@ -141,17 +141,21 @@ In this lab, i used explicit deny rules for isolation boundaries so that the tar
 
 ### The following traffic is intentionally allowed in the lab:
 
-| Source Network                    | Destination                       | Purpose                                              |
-| --------------------------------- | --------------------------------- | ---------------------------------------------------- |
-| Blue Team Network `10.20.20.0/24` | Internet                          | System updates, package downloads, tool installation |
-| Red Team Network `10.30.30.0/24`  | Internet                          | Kali updates, tool downloads, testing                |
-| Transit Network `10.10.10.0/24`   | Internet                          | Windows updates and endpoint access if required      |
-| Red Team Network `10.30.30.0/24`  | Blue Team Network `10.20.20.0/24` | Attack simulation and detection testing              |
-| Blue Team Network `10.20.20.0/24` | Red Team Network `10.30.30.0/24`  | Response traffic and monitoring                      |
-| Blue Team Network `10.20.20.0/24` | Transit Network `10.10.10.0/24`   | Splunk, logging, AD-related communication            |
-| Transit Network `10.10.10.0/24`   | Blue Team Network `10.20.20.0/24` | Endpoint logging and communication with Splunk       |
-| Windows 11 Endpoint               | Active Directory Server           | Domain communication and authentication              |
-| Endpoint VMs                      | Splunk Server                     | Log forwarding and telemetry collection              |
+## Allowed Traffic
+
+The following traffic is intentionally allowed in the lab:
+
+| Source Network | Destination | Purpose |
+|---|---|---|
+| Blue Team Network `10.20.20.0/24` | Internet | System updates, package downloads, tool installation |
+| Red Team Network `10.30.30.0/24` | Internet | Kali updates, tool downloads, testing |
+| Transit Network `10.10.10.0/24` | Internet | Windows updates and endpoint access if required |
+| Red Team Network `10.30.30.0/24` | Blue Team Network `10.20.20.0/24` | Attack simulation and detection testing |
+| Blue Team Network `10.20.20.0/24` | Red Team Network `10.30.30.0/24` | Response traffic and monitoring |
+| Blue Team Network `10.20.20.0/24` | Transit Network `10.10.10.0/24` | Splunk, logging, and AD-related communication |
+| Transit Network `10.10.10.0/24` | Blue Team Network `10.20.20.0/24` | Endpoint logging and communication with Splunk |
+| Windows 11 Endpoint | Active Directory Server | Domain communication and authentication |
+| Endpoint VMs | Splunk Server | Log forwarding and telemetry collection |
 
 ---
 
@@ -159,17 +163,21 @@ In this lab, i used explicit deny rules for isolation boundaries so that the tar
 
 ### The following traffic is intentionally blocked: 
 
-| Source Network                    | Destination                       | Reason                                              |
-| --------------------------------- | --------------------------------- | --------------------------------------------------- |
-| Blue Team Network `10.20.20.0/24` | Home LAN `192.168.1.0/24`         | Prevent lab systems from reaching home devices      |
-| Red Team Network `10.30.30.0/24`  | Home LAN `192.168.1.0/24`         | Prevent attacker VM from reaching home devices      |
-| Transit Network `10.10.10.0/24`   | Home LAN `192.168.1.0/24`         | Prevent AD and endpoint VMs from reaching home LAN  |
-| Home LAN `192.168.1.0/24`         | Blue Team Network `10.20.20.0/24` | Prevent home devices from accessing lab systems     |
-| Home LAN `192.168.1.0/24`         | Red Team Network `10.30.30.0/24`  | Prevent home devices from accessing attacker subnet |
-| Home LAN `192.168.1.0/24`         | Transit Network `10.10.10.0/24`   | Prevent home devices from accessing lab endpoints   |
-| Lab VMs                           | Host A Operating System           | Protect host machine from lab traffic               |
-| Lab VMs                           | Host B Operating System           | Protect host machine from lab traffic               |
-| Unauthorized subnet traffic       | Any destination                   | Enforce segmentation and reduce attack surface      |
+## Blocked Traffic
+
+The following traffic is intentionally blocked:
+
+| Source Network | Destination | Reason |
+|---|---|---|
+| Blue Team Network `10.20.20.0/24` | Home LAN `192.168.1.0/24` | Prevent lab systems from reaching home devices |
+| Red Team Network `10.30.30.0/24` | Home LAN `192.168.1.0/24` | Prevent attacker VM from reaching home devices |
+| Transit Network `10.10.10.0/24` | Home LAN `192.168.1.0/24` | Prevent AD and endpoint VMs from reaching home LAN |
+| Home LAN `192.168.1.0/24` | Blue Team Network `10.20.20.0/24` | Prevent home devices from accessing lab systems |
+| Home LAN `192.168.1.0/24` | Red Team Network `10.30.30.0/24` | Prevent home devices from accessing attacker subnet |
+| Home LAN `192.168.1.0/24` | Transit Network `10.10.10.0/24` | Prevent home devices from accessing lab endpoints |
+| Lab VMs | Host A Operating System | Protect host machine from lab traffic |
+| Lab VMs | Host B Operating System | Protect host machine from lab traffic |
+| Unauthorized subnet traffic | Any destination | Enforce segmentation and reduce attack surface |
 
 ---
 
@@ -205,18 +213,18 @@ After applying the MikroTik firewall rules, traffic from lab VMs to host machine
 
 Expected results after segmentation:
 
-| Test                           |  Expected Results   |
-| -------------------------      |  ----------------   |
-| Kali Linux to Host A OS.       |    Blocked          |
-| Kali Linux to Host B OS.       |    Blocked          |
-| Kali Linux to Home LAN .       |    Blocked          |
-| Blue Team VM to Home LAN.      |    Blocked          |
-| Transit VM to Home LAN.        |    Blocked          |
-| Home LAN to Lab Networks.      |    Blocked          |
-| Kali Linux to Windows Server AD|    Allowed          |
-| Windows 11 to Active Directory |    Allowed          |
-| Endpoint VMs to splunk         |    Allowed          | 
-| Lab VMs to internet            |    Allowed          | 
+| Test | Expected Result |
+|---|---|
+| Kali Linux to Host A OS | Blocked |
+| Kali Linux to Host B OS | Blocked |
+| Kali Linux to Home LAN | Blocked |
+| Blue Team VM to Home LAN | Blocked |
+| Transit VM to Home LAN | Blocked |
+| Home LAN to Lab Networks | Blocked |
+| Kali Linux to Windows Server AD | Allowed |
+| Windows 11 to Active Directory | Allowed |
+| Endpoint VMs to Splunk | Allowed |
+| Lab VMs to Internet | Allowed |
 
 This confirmed that the lab networks were isolated from the home network while still allowing controlled communication for cybersecurity testing, logging, and detection engineering.
 
