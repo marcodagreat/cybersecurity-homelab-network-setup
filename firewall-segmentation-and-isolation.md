@@ -112,14 +112,14 @@ The main security goal was to allow only required lab traffic while blocking una
 
 The firewall rules were designed around three main concepts:
 
-1. **Explicit allow rules**
-   - Allow only required traffic such as internet access, Splunk forwarding, Active Directory communication, and VM-to-VM lab traffic.
+1. Explicit allow rules:
+-  Allow only required traffic such as internet access, Splunk forwarding, Active Directory         communication, and VM-to-VM lab traffic.
 
-2. **Explicit deny rules**
-   - Intentionally block traffic from lab VMs to the home LAN and host operating systems.
+2. Explicit deny rules:
+-  Intentionally block traffic from lab VMs to the home LAN and host operating systems.
 
-3. **Default drop behavior**
-   - Any traffic that is not specifically allowed should be dropped.
+3. Default drop behavior:
+-  Any traffic that is not specifically allowed should be dropped.
 
 ---
 
@@ -257,6 +257,33 @@ The following commands were used to test isolation and connectivity.
 
 ---
 
+## Updated Network Topology
 
+The diagram below represents the updated cybersecurity homelab topology after implementing firewall segmentation and network isolation.
 
+This topology shows how Host A and Host B are connected through a dedicated physical switch for lab VM communication, while Host B uses Wi-Fi only for normal host internet access. The MikroTik CHR router handles routing, NAT, and firewall filtering between the Blue Team, Red Team, and Transit networks.
+
+The design allows controlled VM-to-VM communication while blocking unauthorized access from lab VMs to the host operating systems and home LAN.
+
+<img width="1536" height="1024" alt="ChatGPT Image May 11, 2026, 10_45_36 AM" src="https://github.com/user-attachments/assets/47f8d05f-d0d6-4f11-b437-8eab519796ed" />
+
+*Figure: Updated Cybersecurity Homelab Topology*
+
+---
+
+## Phase Summary: Firewall Segmentation & Network Isolation
+
+In this phase of the homelab, I focused on improving network segmentation and isolating my virtual lab environment from my home network.
+
+The main goal was to allow controlled communication between lab VMs while preventing unauthorized access to the host operating systems and home LAN.
+
+I configured firewall rules on the MikroTik CHR virtual router to explicitly block lab traffic from reaching the home network while still allowing required services such as internet access, Active Directory communication, Splunk log forwarding, and VM-to-VM testing.
+
+Host B was also redesigned so that Wi-Fi is used only for normal host internet access, while the dedicated switch connection is reserved exclusively for VirtualBox VM traffic on the transit network.
+
+This phase helped validate the importance of explicit firewall rules, network isolation, traffic testing, and secure lab design before moving into Splunk, Sysmon, Active Directory, and attack simulation work.
+
+---
+
+🔐 *Learning cybersecurity through building, attacking, and defending systems.*
 
