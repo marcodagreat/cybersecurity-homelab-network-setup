@@ -183,9 +183,17 @@ Before applying the firewall rules, some VMs were able to reach unintended syste
 
 Examples of successful connectivity before segmentation:
 
-- ping 192.168.1.193
+<img width="1920" height="1080" alt="Ubuntu_ 10 20 20 10 - Successful ping to LAN" src="https://github.com/user-attachments/assets/21bd103a-2b12-47b8-8092-671472bf3943" />
 
+---
 
+<img width="1280" height="720" alt="Windows 11 (Transit Network) _ 10 10 10 20 - Successful ping to LAN" src="https://github.com/user-attachments/assets/b769cf15-3da7-48b3-b1dc-d6dba58135dc" />
+
+---
+
+<img width="1920" height="1080" alt="kali_10 30 30 5 - Ping success to LAN" src="https://github.com/user-attachments/assets/4c894d35-cdaf-43d1-8712-c1099732db25" />
+
+*Figure: Successful ping from VMs to Host before Firewall rules*
 
 This showed that the lab was not fully isolated from the host systems and home network.
 
@@ -210,7 +218,7 @@ Expected results after segmentation:
 | Endpoint VMs to splunk         |    Allowed          | 
 | Lab VMs to internet            |    Allowed          | 
 
-### This confirmed that the lab networks were isolated from the home network while still allowing controlled communication for cybersecurity testing, logging, and detection engineering.
+This confirmed that the lab networks were isolated from the home network while still allowing controlled communication for cybersecurity testing, logging, and detection engineering.
 
 ---
 
@@ -219,14 +227,33 @@ Expected results after segmentation:
 The following commands were used to test isolation and connectivity.
 ### Ping Test
 
-Used to verify whether a VM could reach a host, home LAN device, or another lab VM.
+<img width="1920" height="1080" alt="kali_10 30 30 5 - Ping failed  to LAN" src="https://github.com/user-attachments/assets/7b0d511f-cfa8-48e4-b613-8dc9970a2257" />
+
+---
+
+<img width="1920" height="1080" alt="Ubuntu_ 10 20 20 10 - failed ping to LAN" src="https://github.com/user-attachments/assets/9285a72c-c232-463c-a530-d16a4c06ae22" />
+
+---
+
+<img width="1280" height="720" alt="Windows 11 (Transit Network)_ 10 10 10 20  -Failed ping" src="https://github.com/user-attachments/assets/7a758296-3e81-4dd9-8b1b-882157720dd1" />
+
+*Figure: Verified Vms failed to ping Host or any other device on Home LAN*
 
 ---
 
 ## MikroTik Firewall Rule Verification
 
 
-Used to verify the firewall filter rules.
+<img width="720" height="400" alt="MikroTik firewall Rules" src="https://github.com/user-attachments/assets/a6c965e9-9129-443e-9b15-a23eb3ba83ab" />
+
+---
+
+<img width="720" height="400" alt="MikroTik firewall Rules_page2" src="https://github.com/user-attachments/assets/06ff31a6-0701-423c-a21f-17c089864d4d" />
+
+
+<img width="720" height="400" alt="MikroTik firewall Rules_page3" src="https://github.com/user-attachments/assets/e31ba077-d4bf-4bcd-8184-15c304f82424" />
+
+*Figure: Mikrotik Firewall Rules listed* 
 
 ---
 
